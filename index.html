@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nutrition - Dylan's HomoMade Goods</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +14,6 @@
         body { background-color: #52C4FA !important; min-height: 100vh; font-family: 'Encode Sans Expanded', sans-serif !important; color: black; }
         .fda-label { font-family: Arial, Helvetica, sans-serif !important; }
         select:focus, input:focus { outline: none; border-color: #0dcaf0 !important; box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.25) !important; }
-        
         .social-circle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #000000; transition: transform 0.2s ease, filter 0.2s ease; }
         .social-circle:hover { transform: translateY(-3px); filter: brightness(0.9); }
         .social-circle img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
@@ -24,20 +22,7 @@
         .bg-tiktok { background-color: #000000 !important; }
         .bg-linkedin { background-color: #0077B5 !important; }
         .bg-nextdoor { background-color: #19975D !important; }
-
-        .btn-cta {
-            border: 3px solid #0dcaf0 !important;
-            color: #000000 !important;
-            font-weight: 800 !important;
-            font-size: 1.1rem !important;
-            padding: 12px 24px !important;
-            border-radius: 50px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background-color: white !important;
-            transition: all 0.2s ease;
-        }
+        .btn-cta { border: 3px solid #0dcaf0 !important; color: #000000 !important; font-weight: 800 !important; font-size: 1.1rem !important; padding: 12px 24px !important; border-radius: 50px !important; display: flex !important; align-items: center !important; justify-content: center !important; background-color: white !important; transition: all 0.2s ease; }
         .btn-cta:hover { background-color: #0dcaf0 !important; color: #ffffff !important; }
     </style>
 </head>
@@ -71,12 +56,12 @@
 
     <main class="max-w-5xl mx-auto px-4 pb-8 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            
             <div class="bg-slate-800 rounded-[20px] p-6 shadow-2xl border border-slate-600">
                 <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2 text-white">Select Your Bake</h2>
                 <div class="mb-5">
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Product</label>
                     <select id="recipe-select" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-base font-semibold shadow-inner transition-all cursor-pointer" onchange="updateNutrition()">
+                        <option value="" disabled selected>Select the Crust</option>
                         <option value="apple_Cin_focaccia">Apple Cinnamon Focaccia</option>
                         <option value="banana_pie">Banana Pie Sourdough</option>
                         <option value="BB_bagels">Blueberry Bagels</option>
@@ -103,7 +88,7 @@
                         <option value="jala_ched_bagel">Jalapeno Cheddar Bagels</option>
                         <option value="jala_ched">Jalapeno Cheddar Cheese Sourdough</option>
                         <option value="english_muffs">OG English Muffs</option>
-                        <option value="og_loaf" selected>OG Sourdough</option>
+                        <option value="og_loaf">OG Sourdough</option>
                         <option value="og_bagels">OG Sourdough Bagels</option>
                         <option value="focaccia">OG Sourdough Focaccia</option>
                         <option value="pumpkin">Pumpkin Sourdough</option>
@@ -119,7 +104,6 @@
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per product</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
                 </div>
-                <!-- QUICK MACROS -->
                 <div class="mt-8 pt-6 border-t border-slate-600">
                     <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
                     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -134,16 +118,16 @@
             <div class="flex justify-center md:justify-end">
                 <div class="bg-white text-black p-6 border-[3px] border-black fda-label w-full max-w-sm rounded-md shadow-lg">
                     <h2 class="text-[2.2rem] font-black border-b-[3px] border-black pb-1 leading-none tracking-tighter m-0">Nutrition Facts</h2>
-                    <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">1 Slice</span></div>
-                    <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">0</span></div>
+                    <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">-</span></div>
+                    <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">-</span></div>
                     <div class="space-y-1 text-sm leading-tight">
                         <div class="text-right text-xs font-bold border-b border-black pb-1">% Daily Value*</div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Fat</span> <span id="out-fat">0g</span></span></div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Cholesterol</span> <span id="out-chol">0mg</span></span></div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Sodium</span> <span id="out-sod">0mg</span></span></div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Carbohydrate</span> <span id="out-carbs">0g</span></span></div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">0g</span></span></div>
-                        <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Fat</span> <span id="out-fat">-</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Cholesterol</span> <span id="out-chol">-</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Sodium</span> <span id="out-sod">-</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Carbohydrate</span> <span id="out-carbs">-</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">-</span></span></div>
+                        <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">-</span></span></div>
                     </div>
                 </div>
             </div>
@@ -166,7 +150,36 @@
             "roasted_chile_bagel": { type: "unit", dough: [{ name: "Flour", weight: 67 }, { name: "Water", weight: 28 }, { name: "Starter", weight: 20 }, { name: "Blue Agave", weight: 3 }, { name: "Brown Sugar", weight: 3 }, { name: "Salt", weight: 2 }], inclusions: [{ name: "Roasted Green Chile", weight: 5 }, { name: "Mexican Cheese", weight: 3 }, { name: "Gouda Cheese", weight: 3 }] },
             "english_muffs": { type: "unit", dough: [{ name: "Flour", weight: 60.7 }, { name: "Milk", weight: 33.5 }, { name: "Starter", weight: 16 }, { name: "Salt", weight: 1.6 }, { name: "Blue Agave", weight: 3.2 }], inclusions: [{ name: "Cornmeal Dusting", weight: 0 }] },
             "rollies": { type: "unit", dough: [{ name: "Flour", weight: 40.4 }, { name: "Milk", weight: 22.2 }, { name: "Starter", weight: 8.9 }, { name: "Butter Melted", weight: 5.3 }, { name: "Brown Sugar", weight: 2.2 }, { name: "Salt", weight: 0.9 }], inclusions: [] },
-            "focaccia": { type: "batch", dough: [{ name: "Flour", weight: 239.7 }, { name: "Water", weight: 148.6 }, { name: "Salt", weight: 7.7 }, { name: "Starter", weight: 57.5 }, { name: "Blue Agave", weight: 12 }, { name: "Avocado Oil", weight: 9.6 }], inclusions: [] }
+            "focaccia": { type: "batch", dough: [{ name: "Flour", weight: 239.7 }, { name: "Water", weight: 148.6 }, { name: "Salt", weight: 7.7 }, { name: "Starter", weight: 57.5 }, { name: "Blue Agave", weight: 12 }, { name: "Avocado Oil", weight: 9.6 }], inclusions: [] },
+            "apple_Cin_focaccia": { type: "batch", dough: [{ name: "Flour", weight: 216.7 }, { name: "Water", weight: 67.2 }, { name: "Apple Juice", weight: 67.2 }, { name: "Salt", weight: 6.9 }, { name: "Starter", weight: 52 }, { name: "Blue Agave", weight: 10.8 }, { name: "Brown Sugar", weight: 8.7 }, { name: "Vanilla Extract", weight: 2.2 }, { name: "Avocado Oil", weight: 8.7 }], inclusions: [{ name: "Apples", weight: 34.7 }] },
+            "banana_pie": { type: "batch", dough: [{ name: "Flour", weight: 398.8 }, { name: "Water", weight: 247.2 }, { name: "Starter", weight: 100 }, { name: "Salt", weight: 12.8 }, { name: "Banana Pudding Mix", weight: 95.7 }], inclusions: [{ name: "Cookies Fold in", weight: 59.8 }] },
+            "BB_bagels": { type: "unit", dough: [{ name: "Flour", weight: 68.7 }, { name: "Water", weight: 28.1 }, { name: "Starter", weight: 20.5 }, { name: "Blue Agave", weight: 4 }, { name: "Brown Sugar", weight: 4 }, { name: "Salt", weight: 2.1 }], inclusions: [{ name: "Dried Blueberry", weight: 7.4 }] },
+            "bb_Cin_focaccia": { type: "batch", dough: [{ name: "Flour", weight: 216.3 }, { name: "Water", weight: 134.1 }, { name: "Salt", weight: 7 }, { name: "Starter", weight: 51.9 }, { name: "Blue Agave", weight: 13 }, { name: "Brown Sugar", weight: 8.7 }, { name: "Vanilla Extract", weight: 3 }, { name: "Avocado Oil", weight: 8.7 }], inclusions: [{ name: "Dried Blueberries", weight: 32.4 }] },
+            "bb_cin": { type: "batch", dough: [{ name: "Flour", weight: 417.5 }, { name: "Water", weight: 250.5 }, { name: "Starter", weight: 100.2 }, { name: "Salt", weight: 13.4 }, { name: "Brown Sugar", weight: 12.5 }, { name: "Vanilla Extract", weight: 4.2 }], inclusions: [{ name: "Dried Blueberries", weight: 41.7 }] },
+            "blueberry_jack": { type: "batch", dough: [{ name: "Flour", weight: 398.8 }, { name: "Water", weight: 247.2 }, { name: "Starter", weight: 100 }, { name: "Salt", weight: 12.8 }], inclusions: [{ name: "Dried Blueberries", weight: 59.8 }, { name: "Pepper Jack Cheese", weight: 91.7 }] },
+            "blueberry_lemon": { type: "batch", dough: [{ name: "Flour", weight: 424.1 }, { name: "Water", weight: 262.9 }, { name: "Starter", weight: 106 }, { name: "Salt", weight: 13.6 }, { name: "White Sugar", weight: 33.9 }, { name: "Lemon", weight: 13.6 }], inclusions: [{ name: "Dried Blueberries", weight: 50.9 }] },
+            "blueberry": { type: "batch", dough: [{ name: "Flour", weight: 450 }, { name: "Water", weight: 279 }, { name: "Starter", weight: 112.5 }, { name: "Salt", weight: 14.4 }], inclusions: [{ name: "Dried Blueberries", weight: 54 }] },
+            "BB_E_muffs": { type: "unit", dough: [{ name: "Flour", weight: 54.4 }, { name: "Milk", weight: 30.1 }, { name: "Starter", weight: 14.3 }, { name: "Salt", weight: 1.1 }, { name: "Blue Agave", weight: 4.3 }], inclusions: [{ name: "Dried Blueberries", weight: 10.7 }, { name: "Cornmeal Dusting", weight: 0 }] },
+            "CA_focaccia": { type: "batch", dough: [{ name: "Flour", weight: 226 }, { name: "Water", weight: 70.1 }, { name: "Apple Juice", weight: 70.1 }, { name: "Salt", weight: 7.2 }, { name: "Starter", weight: 54.2 }, { name: "Blue Agave", weight: 11.3 }, { name: "Avocado Oil", weight: 9 }], inclusions: [{ name: "Caramel Chips", weight: 13.6 }, { name: "Dried Apple", weight: 13.6 }] },
+            "caramel_apple": { type: "batch", dough: [{ name: "Flour", weight: 434.6 }, { name: "Water", weight: 138.5 }, { name: "Apple Juice", weight: 138.5 }, { name: "Starter", weight: 108.2 }, { name: "Salt", weight: 13.9 }], inclusions: [{ name: "Dried Apples", weight: 34.6 }, { name: "Caramel Chips", weight: 43.3 }] },
+            "carrot_cake": { type: "batch", dough: [{ name: "Flour", weight: 374.2 }, { name: "Water", weight: 232 }, { name: "Starter", weight: 90 }, { name: "Salt", weight: 12 }, { name: "Brown Sugar", weight: 37.4 }, { name: "Molasses", weight: 7.5 }, { name: "Vanilla Extract", weight: 7.5 }], inclusions: [{ name: "Carrots", weight: 74.8 }, { name: "Raisins", weight: 74.8 }] },
+            "Cherry_Chocolate": { type: "batch", dough: [{ name: "Flour", weight: 422.5 }, { name: "Water", weight: 262 }, { name: "Starter", weight: 105.6 }, { name: "Salt", weight: 13.5 }], inclusions: [{ name: "Dried Cherry", weight: 50.7 }, { name: "Chocolate Chips", weight: 50.7 }] },
+            "Chocolate_espresso": { type: "batch", dough: [{ name: "Flour", weight: 428.8 }, { name: "Water", weight: 253 }, { name: "Starter", weight: 102.9 }, { name: "Salt", weight: 13.7 }, { name: "Brown Sugar", weight: 34.3 }, { name: "Espresso Powder", weight: 8.6 }], inclusions: [{ name: "Chocolate Chips", weight: 68.6 }] },
+            "cin_apple": { type: "batch", dough: [{ name: "Flour", weight: 426 }, { name: "Water", weight: 127.8 }, { name: "Apple Juice", weight: 127.8 }, { name: "Starter", weight: 102.2 }, { name: "Salt", weight: 13.6 }, { name: "Vanilla Extract", weight: 4.3 }], inclusions: [{ name: "Dried Apples", weight: 38.3 }] },
+            "cin_raisin": { type: "batch", dough: [{ name: "Flour", weight: 417.5 }, { name: "Water", weight: 250.5 }, { name: "Starter", weight: 100.2 }, { name: "Salt", weight: 13.4 }, { name: "Brown Sugar", weight: 12.5 }, { name: "Vanilla Extract", weight: 4.2 }], inclusions: [{ name: "Raisins", weight: 41.7 }] },
+            "Cranberry_orange": { type: "batch", dough: [{ name: "Flour", weight: 426.1 }, { name: "Water", weight: 264.2 }, { name: "Starter", weight: 102.3 }, { name: "Salt", weight: 13.6 }, { name: "White Sugar", weight: 34.1 }, { name: "Lemon", weight: 13.6 }], inclusions: [{ name: "Dried Cranberries", weight: 51.1 }] },
+            "Dill_Dough": { type: "batch", dough: [{ name: "Flour", weight: 463.2 }, { name: "Water", weight: 185.3 }, { name: "Pickle Juice", weight: 92.6 }, { name: "Starter", weight: 111.2 }, { name: "Pickle Salt", weight: 6.5 }], inclusions: [{ name: "Pickles", weight: 46.3 }] },
+            "Gar_Parm_focaccia": { type: "batch", dough: [{ name: "Flour", weight: 222.6 }, { name: "Water", weight: 138 }, { name: "Salt", weight: 7.1 }, { name: "Starter", weight: 53.4 }, { name: "Blue Agave", weight: 11.1 }, { name: "Avocado Oil", weight: 8.9 }], inclusions: [{ name: "Garlic", weight: 45 }, { name: "Parm Cheese", weight: 33.4 }] },
+            "garlic_parm": { type: "batch", dough: [{ name: "Flour", weight: 434.6 }, { name: "Water", weight: 269.4 }, { name: "Starter", weight: 104.3 }, { name: "Salt", weight: 13.9 }, { name: "Garlic Head", weight: 45 }], inclusions: [{ name: "Parm Cheese", weight: 86.9 }] },
+            "ginger_crust": { type: "batch", dough: [{ name: "Flour", weight: 415.9 }, { name: "Water", weight: 241.2 }, { name: "Starter", weight: 100 }, { name: "Salt", weight: 13.3 }, { name: "Brown Sugar", weight: 41.6 }, { name: "Molasses", weight: 83.2 }, { name: "Vanilla Extract", weight: 4.2 }, { name: "Ginger", weight: 5.8 }], inclusions: [] },
+            "grilled_chz": { type: "batch", dough: [{ name: "Flour", weight: 432.9 }, { name: "Water", weight: 268.4 }, { name: "Starter", weight: 108.2 }, { name: "Salt", weight: 13.9 }], inclusions: [{ name: "Cheese Mix", weight: 86.6 }] },
+            "JC_E_muffs": { type: "unit", dough: [{ name: "Flour", weight: 49.8 }, { name: "Milk", weight: 28.8 }, { name: "Starter", weight: 13.1 }, { name: "Salt", weight: 1 }, { name: "Blue Agave", weight: 2.6 }], inclusions: [{ name: "Cheddar Cheese", weight: 9.8 }, { name: "Jalapenos", weight: 9.8 }, { name: "Cornmeal Dusting", weight: 0 }] },
+            "jala_ched": { type: "batch", dough: [{ name: "Flour", weight: 405.5 }, { name: "Water", weight: 251.4 }, { name: "Starter", weight: 101.4 }, { name: "Salt", weight: 13 }], inclusions: [{ name: "Jalapeno", weight: 60.8 }, { name: "Cheddar Cheese", weight: 73 }] },
+            "og_bagels": { type: "unit", dough: [{ name: "Flour", weight: 73.1 }, { name: "Water", weight: 30.5 }, { name: "Starter", weight: 21.8 }, { name: "Blue Agave", weight: 3.6 }, { name: "Brown Sugar", weight: 3.6 }, { name: "Salt", weight: 2.3 }], inclusions: [] },
+            "pumpkin": { type: "batch", dough: [{ name: "Flour", weight: 431.1 }, { name: "Water", weight: 189.6 }, { name: "Pumpkin Puree", weight: 172.6 }, { name: "Starter", weight: 86 }, { name: "Salt", weight: 8.8 }, { name: "Blue Agave", weight: 17 }], inclusions: [] },
+            "Rosemary_asiago": { type: "batch", dough: [{ name: "Flour", weight: 434.3 }, { name: "Water", weight: 269.2 }, { name: "Starter", weight: 104.2 }, { name: "Salt", weight: 13.9 }, { name: "Chopped Rosemary", weight: 5.2 }], inclusions: [{ name: "Asiago Cheese", weight: 78.2 }] },
+            "salty_dulce": { type: "batch", dough: [{ name: "Flour", weight: 450 }, { name: "Water", weight: 279 }, { name: "Starter", weight: 112.5 }, { name: "Salt", weight: 14.4 }], inclusions: [{ name: "Flakey Salt Topping", weight: 0 }, { name: "Caramel Chips", weight: 54 }] },
+            "sweet_cin": { type: "batch", dough: [{ name: "Flour", weight: 437 }, { name: "Water", weight: 266.6 }, { name: "Starter", weight: 104.9 }, { name: "Salt", weight: 14 }, { name: "Brown Sugar", weight: 13.1 }, { name: "Vanilla Extract", weight: 4.4 }], inclusions: [] }
         };
 
         const ingredientMacros = {
@@ -175,6 +188,7 @@
             "Water": { calories: 0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 },
             "Salt": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
             "Jalapeno": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.03, carbs: 0.07, sugar: 0.04, protein: 0.01 },
+            "Jalapenos": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.03, carbs: 0.07, sugar: 0.04, protein: 0.01 },
             "Cheddar Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
             "Roasted Green Chile": { calories: 0.40, fat: 0, cholesterol: 0, sodium: 0.02, carbs: 0.09, sugar: 0.05, protein: 0.01 },
             "Mexican Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
@@ -183,7 +197,36 @@
             "Butter Melted": { calories: 7.17, fat: 0.81, cholesterol: 2.15, sodium: 6.43, carbs: 0.01, sugar: 0.01, protein: 0.01 },
             "Blue Agave": { calories: 3.10, fat: 0, cholesterol: 0, sodium: 0, carbs: 0.76, sugar: 0.68, protein: 0 },
             "Brown Sugar": { calories: 3.8, fat: 0, cholesterol: 0, sodium: 0.28, carbs: 0.98, sugar: 0.97, protein: 0 },
-            "Cornmeal Dusting": { calories: 3.6, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.77, sugar: 0.01, protein: 0.08 }
+            "Cornmeal Dusting": { calories: 3.6, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.77, sugar: 0.01, protein: 0.08 },
+            "Apples": { calories: 0.52, fat: 0, cholesterol: 0, sodium: 0.01, carbs: 0.14, sugar: 0.10, protein: 0 },
+            "Lemon": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.02, carbs: 0.09, sugar: 0.03, protein: 0.01 },
+            "Carrots": { calories: 0.41, fat: 0, cholesterol: 0, sodium: 0.69, carbs: 0.10, sugar: 0.05, protein: 0.01 },
+            "Raisins": { calories: 2.99, fat: 0.01, cholesterol: 0, sodium: 0.11, carbs: 0.79, sugar: 0.59, protein: 0.03 },
+            "Garlic Head": { calories: 1.49, fat: 0.01, cholesterol: 0, sodium: 0.17, carbs: 0.33, sugar: 0.01, protein: 0.06 },
+            "Pickle Juice": { calories: 0.02, fat: 0, cholesterol: 0, sodium: 8.0, carbs: 0, sugar: 0, protein: 0 },
+            "Pickle Salt": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
+            "Pickles": { calories: 0.11, fat: 0, cholesterol: 0, sodium: 12.0, carbs: 0.02, sugar: 0.01, protein: 0 },
+            "Parm Cheese": { calories: 4.31, fat: 0.29, cholesterol: 0.88, sodium: 15.29, carbs: 0.04, sugar: 0.01, protein: 0.38 },
+            "Chocolate Chips": { calories: 4.7, fat: 0.27, cholesterol: 0, sodium: 0.15, carbs: 0.63, sugar: 0.54, protein: 0.04 },
+            "Espresso Powder": { calories: 2.0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0.4, sugar: 0, protein: 0.1 },
+            "Chopped Rosemary": { calories: 1.31, fat: 0.06, cholesterol: 0, sodium: 0.26, carbs: 0.21, sugar: 0, protein: 0.03 },
+            "Banana Pudding Mix": { calories: 3.5, fat: 0, cholesterol: 0, sodium: 4.0, carbs: 0.85, sugar: 0.75, protein: 0 },
+            "Cookies Fold in": { calories: 4.5, fat: 0.15, cholesterol: 0.05, sodium: 3.0, carbs: 0.75, sugar: 0.35, protein: 0.05 },
+            "Italian Seasoning": { calories: 2.8, fat: 0.06, cholesterol: 0, sodium: 0.1, carbs: 0.5, sugar: 0.01, protein: 0.1 },
+            "Dried Onion": { calories: 3.49, fat: 0.01, cholesterol: 0, sodium: 0.73, carbs: 0.79, sugar: 0.38, protein: 0.09 },
+            "Pepper Flakes": { calories: 3.18, fat: 0.17, cholesterol: 0, sodium: 0.3, carbs: 0.56, sugar: 0.1, protein: 0.12 },
+            "Ginger": { calories: 0.8, fat: 0.01, cholesterol: 0, sodium: 0.13, carbs: 0.18, sugar: 0.02, protein: 0.02 },
+            "Apple Juice": { calories: 0.46, fat: 0, cholesterol: 0, sodium: 0.04, carbs: 0.11, sugar: 0.10, protein: 0 },
+            "Dried Apples": { calories: 2.43, fat: 0, cholesterol: 0, sodium: 0.87, carbs: 0.66, sugar: 0.57, protein: 0.01 },
+            "Caramel Chips": { calories: 5.3, fat: 0.3, cholesterol: 0, sodium: 1.0, carbs: 0.65, sugar: 0.60, protein: 0.05 },
+            "Flakey Salt Topping": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
+            "Dried Blueberries": { calories: 3.17, fat: 0.01, cholesterol: 0, sodium: 0.03, carbs: 0.81, sugar: 0.65, protein: 0.02 },
+            "Dried Cranberries": { calories: 3.08, fat: 0.01, cholesterol: 0, sodium: 0.03, carbs: 0.82, sugar: 0.65, protein: 0 },
+            "Cheese Mix": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Pepper Jack Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Vanilla Extract": { calories: 2.88, fat: 0, cholesterol: 0, sodium: 0.09, carbs: 0.13, sugar: 0.13, protein: 0 },
+            "Avocado Oil": { calories: 8.84, fat: 1.0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Pumpkin Puree": { calories: 0.34, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.08, sugar: 0.03, protein: 0.01 }
         };
 
         function updateNutrition() {
@@ -232,6 +275,7 @@
             document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
             document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
             document.getElementById("quick-fat").innerText = document.getElementById("out-fat").innerText;
+            document.getElementById("out-serving-name").innerText = "1 Item";
         }
         updateNutrition();
     </script>
