@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nutrition - Dylan's HomoMade Goods</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,7 @@
         body { background-color: #52C4FA !important; min-height: 100vh; font-family: 'Encode Sans Expanded', sans-serif !important; color: black; }
         .fda-label { font-family: Arial, Helvetica, sans-serif !important; }
         select:focus, input:focus { outline: none; border-color: #0dcaf0 !important; box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.25) !important; }
+        
         .social-circle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #000000; transition: transform 0.2s ease, filter 0.2s ease; }
         .social-circle:hover { transform: translateY(-3px); filter: brightness(0.9); }
         .social-circle img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
@@ -22,7 +24,20 @@
         .bg-tiktok { background-color: #000000 !important; }
         .bg-linkedin { background-color: #0077B5 !important; }
         .bg-nextdoor { background-color: #19975D !important; }
-        .btn-cta { border: 3px solid #0dcaf0 !important; color: #000000 !important; font-weight: 800 !important; font-size: 1.1rem !important; padding: 12px 24px !important; border-radius: 50px !important; display: flex !important; align-items: center !important; justify-content: center !important; background-color: white !important; transition: all 0.2s ease; }
+
+        .btn-cta {
+            border: 3px solid #0dcaf0 !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+            font-size: 1.1rem !important;
+            padding: 12px 24px !important;
+            border-radius: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background-color: white !important;
+            transition: all 0.2s ease;
+        }
         .btn-cta:hover { background-color: #0dcaf0 !important; color: #ffffff !important; }
     </style>
 </head>
@@ -56,6 +71,7 @@
 
     <main class="max-w-5xl mx-auto px-4 pb-8 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            
             <div class="bg-slate-800 rounded-[20px] p-6 shadow-2xl border border-slate-600">
                 <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2 text-white">Select Your Bake</h2>
                 <div class="mb-5">
@@ -104,15 +120,6 @@
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per product</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
                 </div>
-                <div class="mt-8 pt-6 border-t border-slate-600">
-                    <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
-                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Cals</span><span id="quick-cals" class="block text-white font-black text-lg">0</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Carbs</span><span id="quick-carbs" class="block text-white font-black text-lg">0g</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Protein</span><span id="quick-pro" class="block text-white font-black text-lg">0g</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Fat</span><span id="quick-fat" class="block text-white font-black text-lg">0g</span></div>
-                    </div>
-                </div>
             </div>
 
             <div class="flex justify-center md:justify-end">
@@ -123,7 +130,6 @@
                     <div class="space-y-1 text-sm leading-tight">
                         <div class="text-right text-xs font-bold border-b border-black pb-1">% Daily Value*</div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Fat</span> <span id="out-fat">-</span></span></div>
-                        <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Cholesterol</span> <span id="out-chol">-</span></span></div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Sodium</span> <span id="out-sod">-</span></span></div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Carbohydrate</span> <span id="out-carbs">-</span></span></div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">-</span></span></div>
@@ -183,50 +189,49 @@
         };
 
         const ingredientMacros = {
-            "Flour": { calories: 3.64, fat: 0.01, cholesterol: 0, sodium: 0.02, carbs: 0.76, sugar: 0.01, protein: 0.10 },
-            "Starter": { calories: 1.82, fat: 0.005, cholesterol: 0, sodium: 0.01, carbs: 0.38, sugar: 0.005, protein: 0.05 },
-            "Water": { calories: 0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 },
-            "Salt": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
-            "Jalapeno": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.03, carbs: 0.07, sugar: 0.04, protein: 0.01 },
-            "Jalapenos": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.03, carbs: 0.07, sugar: 0.04, protein: 0.01 },
-            "Cheddar Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            "Roasted Green Chile": { calories: 0.40, fat: 0, cholesterol: 0, sodium: 0.02, carbs: 0.09, sugar: 0.05, protein: 0.01 },
-            "Mexican Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            "Gouda Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            "Milk": { calories: 0.60, fat: 0.03, cholesterol: 0.1, sodium: 0.4, carbs: 0.05, sugar: 0.05, protein: 0.03 },
-            "Butter Melted": { calories: 7.17, fat: 0.81, cholesterol: 2.15, sodium: 6.43, carbs: 0.01, sugar: 0.01, protein: 0.01 },
-            "Blue Agave": { calories: 3.10, fat: 0, cholesterol: 0, sodium: 0, carbs: 0.76, sugar: 0.68, protein: 0 },
-            "Brown Sugar": { calories: 3.8, fat: 0, cholesterol: 0, sodium: 0.28, carbs: 0.98, sugar: 0.97, protein: 0 },
-            "Cornmeal Dusting": { calories: 3.6, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.77, sugar: 0.01, protein: 0.08 },
-            "Apples": { calories: 0.52, fat: 0, cholesterol: 0, sodium: 0.01, carbs: 0.14, sugar: 0.10, protein: 0 },
-            "Lemon": { calories: 0.29, fat: 0, cholesterol: 0, sodium: 0.02, carbs: 0.09, sugar: 0.03, protein: 0.01 },
-            "Carrots": { calories: 0.41, fat: 0, cholesterol: 0, sodium: 0.69, carbs: 0.10, sugar: 0.05, protein: 0.01 },
-            "Raisins": { calories: 2.99, fat: 0.01, cholesterol: 0, sodium: 0.11, carbs: 0.79, sugar: 0.59, protein: 0.03 },
-            "Garlic Head": { calories: 1.49, fat: 0.01, cholesterol: 0, sodium: 0.17, carbs: 0.33, sugar: 0.01, protein: 0.06 },
-            "Pickle Juice": { calories: 0.02, fat: 0, cholesterol: 0, sodium: 8.0, carbs: 0, sugar: 0, protein: 0 },
-            "Pickle Salt": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
-            "Pickles": { calories: 0.11, fat: 0, cholesterol: 0, sodium: 12.0, carbs: 0.02, sugar: 0.01, protein: 0 },
-            "Parm Cheese": { calories: 4.31, fat: 0.29, cholesterol: 0.88, sodium: 15.29, carbs: 0.04, sugar: 0.01, protein: 0.38 },
-            "Chocolate Chips": { calories: 4.7, fat: 0.27, cholesterol: 0, sodium: 0.15, carbs: 0.63, sugar: 0.54, protein: 0.04 },
-            "Espresso Powder": { calories: 2.0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0.4, sugar: 0, protein: 0.1 },
-            "Chopped Rosemary": { calories: 1.31, fat: 0.06, cholesterol: 0, sodium: 0.26, carbs: 0.21, sugar: 0, protein: 0.03 },
-            "Banana Pudding Mix": { calories: 3.5, fat: 0, cholesterol: 0, sodium: 4.0, carbs: 0.85, sugar: 0.75, protein: 0 },
-            "Cookies Fold in": { calories: 4.5, fat: 0.15, cholesterol: 0.05, sodium: 3.0, carbs: 0.75, sugar: 0.35, protein: 0.05 },
-            "Italian Seasoning": { calories: 2.8, fat: 0.06, cholesterol: 0, sodium: 0.1, carbs: 0.5, sugar: 0.01, protein: 0.1 },
-            "Dried Onion": { calories: 3.49, fat: 0.01, cholesterol: 0, sodium: 0.73, carbs: 0.79, sugar: 0.38, protein: 0.09 },
-            "Pepper Flakes": { calories: 3.18, fat: 0.17, cholesterol: 0, sodium: 0.3, carbs: 0.56, sugar: 0.1, protein: 0.12 },
-            "Ginger": { calories: 0.8, fat: 0.01, cholesterol: 0, sodium: 0.13, carbs: 0.18, sugar: 0.02, protein: 0.02 },
-            "Apple Juice": { calories: 0.46, fat: 0, cholesterol: 0, sodium: 0.04, carbs: 0.11, sugar: 0.10, protein: 0 },
-            "Dried Apples": { calories: 2.43, fat: 0, cholesterol: 0, sodium: 0.87, carbs: 0.66, sugar: 0.57, protein: 0.01 },
-            "Caramel Chips": { calories: 5.3, fat: 0.3, cholesterol: 0, sodium: 1.0, carbs: 0.65, sugar: 0.60, protein: 0.05 },
-            "Flakey Salt Topping": { calories: 0, fat: 0, cholesterol: 0, sodium: 393.4, carbs: 0, sugar: 0, protein: 0 },
-            "Dried Blueberries": { calories: 3.17, fat: 0.01, cholesterol: 0, sodium: 0.03, carbs: 0.81, sugar: 0.65, protein: 0.02 },
-            "Dried Cranberries": { calories: 3.08, fat: 0.01, cholesterol: 0, sodium: 0.03, carbs: 0.82, sugar: 0.65, protein: 0 },
-            "Cheese Mix": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            "Pepper Jack Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            "Vanilla Extract": { calories: 2.88, fat: 0, cholesterol: 0, sodium: 0.09, carbs: 0.13, sugar: 0.13, protein: 0 },
-            "Avocado Oil": { calories: 8.84, fat: 1.0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 },
-            "Pumpkin Puree": { calories: 0.34, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.08, sugar: 0.03, protein: 0.01 }
+            "Flour": { calories: 3.64, fat: 0.01, carbs: 0.76, sugar: 0.01, protein: 0.10 },
+            "Starter": { calories: 1.82, fat: 0.005, carbs: 0.38, sugar: 0.005, protein: 0.05 },
+            "Water": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Salt": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Jalapeno": { calories: 0.29, fat: 0, carbs: 0.07, sugar: 0.04, protein: 0.01 },
+            "Cheddar Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Roasted Green Chile": { calories: 0.40, fat: 0, carbs: 0.09, sugar: 0.05, protein: 0.01 },
+            "Mexican Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Gouda Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Milk": { calories: 0.60, fat: 0.03, carbs: 0.05, sugar: 0.05, protein: 0.03 },
+            "Butter Melted": { calories: 7.17, fat: 0.81, carbs: 0.01, sugar: 0.01, protein: 0.01 },
+            "Blue Agave": { calories: 3.10, fat: 0, carbs: 0.76, sugar: 0.68, protein: 0 },
+            "Brown Sugar": { calories: 3.8, fat: 0, carbs: 0.98, sugar: 0.97, protein: 0 },
+            "Cornmeal Dusting": { calories: 3.6, fat: 0.01, carbs: 0.77, sugar: 0.01, protein: 0.08 },
+            "Apples": { calories: 0.52, fat: 0, carbs: 0.14, sugar: 0.10, protein: 0 },
+            "Lemon": { calories: 0.29, fat: 0, carbs: 0.09, sugar: 0.03, protein: 0.01 },
+            "Carrots": { calories: 0.41, fat: 0, carbs: 0.10, sugar: 0.05, protein: 0.01 },
+            "Raisins": { calories: 2.99, fat: 0.01, carbs: 0.79, sugar: 0.59, protein: 0.03 },
+            "Garlic Head": { calories: 1.49, fat: 0.01, carbs: 0.33, sugar: 0.01, protein: 0.06 },
+            "Pickle Juice": { calories: 0.02, fat: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Pickle Salt": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Pickles": { calories: 0.11, fat: 0, carbs: 0.02, sugar: 0.01, protein: 0 },
+            "Parm Cheese": { calories: 4.31, fat: 0.29, carbs: 0.04, sugar: 0.01, protein: 0.38 },
+            "Chocolate Chips": { calories: 4.7, fat: 0.27, carbs: 0.63, sugar: 0.54, protein: 0.04 },
+            "Espresso Powder": { calories: 2.0, fat: 0, carbs: 0.4, sugar: 0, protein: 0.1 },
+            "Chopped Rosemary": { calories: 1.31, fat: 0.06, carbs: 0.21, sugar: 0, protein: 0.03 },
+            "Banana Pudding Mix": { calories: 3.5, fat: 0, carbs: 0.85, sugar: 0.75, protein: 0 },
+            "Cookies Fold in": { calories: 4.5, fat: 0.15, carbs: 0.75, sugar: 0.35, protein: 0.05 },
+            "Italian Seasoning": { calories: 2.8, fat: 0.06, carbs: 0.5, sugar: 0.01, protein: 0.1 },
+            "Dried Onion": { calories: 3.49, fat: 0.01, carbs: 0.79, sugar: 0.38, protein: 0.09 },
+            "Pepper Flakes": { calories: 3.18, fat: 0.17, carbs: 0.56, sugar: 0.1, protein: 0.12 },
+            "Ginger": { calories: 0.8, fat: 0.01, carbs: 0.18, sugar: 0.02, protein: 0.02 },
+            "Apple Juice": { calories: 0.46, fat: 0, carbs: 0.11, sugar: 0.10, protein: 0 },
+            "Dried Apples": { calories: 2.43, fat: 0, carbs: 0.66, sugar: 0.57, protein: 0.01 },
+            "Caramel Chips": { calories: 5.3, fat: 0.3, carbs: 0.65, sugar: 0.60, protein: 0.05 },
+            "Flakey Salt Topping": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
+            "Dried Blueberries": { calories: 3.17, fat: 0.01, carbs: 0.81, sugar: 0.65, protein: 0.02 },
+            "Dried Cranberries": { calories: 3.08, fat: 0.01, carbs: 0.82, sugar: 0.65, protein: 0 },
+            "Cheese Mix": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Pepper Jack Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
+            "Vanilla Extract": { calories: 2.88, fat: 0, carbs: 0.13, sugar: 0.13, protein: 0 },
+            "Avocado Oil": { calories: 8.84, fat: 1.0, carbs: 0, sugar: 0, protein: 0 },
+            "Pumpkin Puree": { calories: 0.34, fat: 0.01, carbs: 0.08, sugar: 0.03, protein: 0.01 }
         };
 
         function updateNutrition() {
@@ -245,15 +250,14 @@
             }
 
             const slices = parseFloat(slicesInput.value) || 1;
-            let totalCals = 0, totalFat = 0, totalChol = 0, totalSod = 0, totalCarbs = 0, totalSugar = 0, totalPro = 0;
+            let totalCals = 0, totalFat = 0, totalSod = 0, totalCarbs = 0, totalSugar = 0, totalPro = 0;
             
             function calc(items) {
                 items.forEach(item => {
-                    const m = ingredientMacros[item.name] || { calories: 0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 };
+                    const m = ingredientMacros[item.name] || { calories: 0, fat: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 };
                     totalCals += item.weight * m.calories;
                     totalFat += item.weight * m.fat;
-                    totalChol += item.weight * m.cholesterol;
-                    totalSod += item.weight * m.sodium;
+                    totalSod += item.weight * (m.sodium || 0);
                     totalCarbs += item.weight * m.carbs;
                     totalSugar += item.weight * m.sugar;
                     totalPro += item.weight * m.protein;
@@ -265,19 +269,16 @@
             const divisor = (recipe.type === "batch") ? slices : 1;
             document.getElementById("out-cals").innerText = Math.round(totalCals / divisor);
             document.getElementById("out-fat").innerText = Math.round(totalFat / divisor) + "g";
-            document.getElementById("out-chol").innerText = Math.round(totalChol / divisor) + "mg";
             document.getElementById("out-sod").innerText = Math.round(totalSod / divisor) + "mg";
             document.getElementById("out-carbs").innerText = Math.round(totalCarbs / divisor) + "g";
             document.getElementById("out-sugar").innerText = Math.round(totalSugar / divisor) + "g";
             document.getElementById("out-pro").innerText = Math.round(totalPro / divisor) + "g";
-            
             document.getElementById("quick-cals").innerText = document.getElementById("out-cals").innerText;
             document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
             document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
             document.getElementById("quick-fat").innerText = document.getElementById("out-fat").innerText;
             document.getElementById("out-serving-name").innerText = "1 Item";
         }
-        updateNutrition();
     </script>
 </body>
 </html>
