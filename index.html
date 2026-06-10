@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nutrition - Dylan's HomoMade Goods</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Your Official Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            background-color: #52C4FA !important; 
+            min-height: 100vh; 
+            font-family: 'Encode Sans Expanded', sans-serif !important; 
+            color: black;
+        }
+        .fda-label { 
+            font-family: Arial, Helvetica, sans-serif !important; 
+        }
+        select:focus, input:focus {
+            outline: none;
+            border-color: #0dcaf0 !important;
+            box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.25) !important;
+        }
+        
+        /* Social Circles */
+        .social-circle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #000000; transition: transform 0.2s ease, filter 0.2s ease; }
+        .social-circle:hover { transform: translateY(-3px); filter: brightness(0.9); }
+        .social-circle img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+        .bg-facebook { background-color: #1877F2 !important; }
+        .bg-instagram { background-color: #E1306C !important; } 
+        .bg-tiktok { background-color: #000000 !important; }
+        .bg-linkedin { background-color: #0077B5 !important; }
+        .bg-nextdoor { background-color: #19975D !important; }
+
+        /* CTA Buttons */
+        .btn-cta {
+            border: 3px solid #0dcaf0 !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+            font-size: 1.1rem !important;
+            padding: 12px 24px !important;
+            border-radius: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background-color: white !important;
+            transition: all 0.2s ease;
+        }
+        .btn-cta:hover { background-color: #0dcaf0 !important; color: #ffffff !important; }
+    </style>
+</head>
+<body class="antialiased pb-10">
+
+    <!-- BANNER & SOCIALS -->
+    <div class="max-w-[680px] mx-auto pt-8 px-4 text-center">
+        <div class="relative mb-[60px] rounded-[16px] shadow-sm border border-black bg-white">
+            <img class="w-full h-auto rounded-[16px] block" src="images/banner.png" alt="Dylan's HomoMade Goods Banner" onerror="this.src='https://placehold.co/680x200/e2e8f0/000000?text=Banner+Image+Missing'">
+            <div class="absolute left-1/2 -translate-x-1/2 w-full px-3" style="bottom: -40px;">
+                <h1 class="font-['Rock_Salt'] bg-white px-4 py-2 rounded-full shadow-sm border border-black m-0 text-[clamp(1.2rem,5vw,1.8rem)] text-black leading-[1.1] inline-block">
+                    Dylan's HomoMade Goods
+                </h1>
+            </div>
+        </div>
+
+        <div class="flex justify-center flex-wrap gap-3 mb-6 mt-4">
+            <a href="https://www.facebook.com/DylansHomoMadeGoods" class="social-circle bg-facebook shadow-sm" target="_blank" rel="noopener" aria-label="Facebook"><img src="images/icons/facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/dylanshomomadegood" class="social-circle bg-instagram shadow-sm" target="_blank" rel="noopener" aria-label="Instagram"><img src="images/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@dylanshomomadegoods" class="social-circle bg-tiktok shadow-sm" target="_blank" rel="noopener" aria-label="TikTok"><img src="images/icons/tiktok.svg" alt="TikTok"></a>
+            <a href="https://www.linkedin.com/company/dylanshomomadegoods" class="social-circle bg-linkedin shadow-sm" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/icons/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://nextdoor.com/page/dylans-homomade-goods-westminster-co/" class="social-circle bg-nextdoor shadow-sm" target="_blank" rel="noopener" aria-label="Nextdoor"><img src="images/icons/nextdoor.svg" alt="Nextdoor"></a>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <a class="btn-cta shadow-sm w-full sm:w-auto" href="index.html" rel="noopener">🏠 Back to Website</a>
+            <a class="btn-cta shadow-sm w-full sm:w-auto" href="https://bakesy.shop/b/dylans-homomade-goods" target="_blank" rel="noopener">🛒 Order Here, Get Crusty</a>
+        </div>
+        
+        <div class="mt-5 mb-8">
+            <p class="bg-white p-3 rounded-[16px] shadow-sm border border-black font-semibold text-lg">Nutritional Information & Macros 🍞</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-5xl mx-auto px-4 pb-8 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            
+            <!-- LEFT SIDE -->
+            <div class="bg-slate-800 rounded-[20px] p-6 shadow-2xl border border-slate-600">
+                <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2 text-white">Select Your Bake</h2>
+                <div class="mb-5">
+                    <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Product</label>
+                    <select id="recipe-select" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-base font-semibold shadow-inner transition-all cursor-pointer" onchange="updateNutrition()">
+                        <!-- Options list remains same -->
+                        <option value="og_loaf" selected>OG Sourdough</option>
+                        <option value="roasted_chile">Roasted Chile Cheese Sourdough</option>
+                        <option value="english_muffs">OG English Muffs</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per Batch</label>
+                    <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
+                </div>
+                <!-- QUICK MACROS -->
+                <div class="mt-8 pt-6 border-t border-slate-600">
+                    <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
+                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Cals</span><span id="quick-cals" class="block text-white font-black text-lg">0</span></div>
+                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Carbs</span><span id="quick-carbs" class="block text-white font-black text-lg">0g</span></div>
+                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Protein</span><span id="quick-pro" class="block text-white font-black text-lg">0g</span></div>
+                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Fat</span><span id="quick-fat" class="block text-white font-black text-lg">0g</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: FDA Label -->
+            <div class="flex justify-center md:justify-end">
+                <div class="bg-white text-black p-6 border-[3px] border-black fda-label w-full max-w-sm rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+                    <h2 class="text-[2.2rem] font-black border-b-[3px] border-black pb-1 leading-none tracking-tighter m-0">Nutrition Facts</h2>
+                    <div class="text-base pt-1 pb-1 leading-tight font-bold"><span><span id="out-servings">13</span> servings per container</span></div>
+                    <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">1 Slice</span></div>
+                    <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">0</span></div>
+                    <div class="space-y-1 text-sm leading-tight">
+                        <div class="flex justify-between border-b border-black pb-1"><span><span class="font-bold">Total Fat</span> <span id="out-fat">0g</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1"><span><span class="font-bold">Cholesterol</span> <span id="out-chol">0mg</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1"><span><span class="font-bold">Sodium</span> <span id="out-sod">0mg</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1"><span><span class="font-bold">Total Carbohydrate</span> <span id="out-carbs">0g</span></span></div>
+                        <div class="flex justify-between border-b border-black pb-1 pl-6"><span>Total Sugars <span id="out-sugar">0g</span></span></div>
+                        <div class="flex justify-between border-b-[10px] border-black pb-2"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
+                    </div>
+                    <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight italic border-t border-gray-300 pt-2">
+                        <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-4 text-center pb-8 px-4 font-['Encode_Sans_Expanded'] text-black text-[0.75rem] max-w-[550px] mx-auto">
+        <div class="mb-2 font-bold text-lg">Dylan's HomoMade Goods &trade; est. 2025</div>
+        <p class="mb-3 leading-[1.4] font-medium">This product was produced in a home kitchen that is not subject to state licensure or inspection. This product is not intended for resale.</p>
+        <a href="privacy.html" class="text-black hover:underline font-bold">Privacy Policy</a>
+    </footer>
+
+    <script>
+        // Paste recipe database and logic here as in the previous block...
+    </script>
+</body>
+</html>
