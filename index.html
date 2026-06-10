@@ -194,6 +194,7 @@
             "Water": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
             "Salt": { calories: 0, fat: 0, carbs: 0, sugar: 0, protein: 0 },
             "Jalapeno": { calories: 0.29, fat: 0, carbs: 0.07, sugar: 0.04, protein: 0.01 },
+            "Jalapenos": { calories: 0.29, fat: 0, carbs: 0.07, sugar: 0.04, protein: 0.01 },
             "Cheddar Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
             "Roasted Green Chile": { calories: 0.40, fat: 0, carbs: 0.09, sugar: 0.05, protein: 0.01 },
             "Mexican Cheese": { calories: 4.0, fat: 0.33, carbs: 0.01, sugar: 0.01, protein: 0.25 },
@@ -277,8 +278,8 @@
             document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
             document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
             document.getElementById("quick-fat").innerText = document.getElementById("out-fat").innerText;
-            document.getElementById("out-serving-name").innerText = "1 Item";
         }
+        updateNutrition();
     </script>
 </body>
 </html>
