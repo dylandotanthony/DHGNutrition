@@ -119,8 +119,8 @@
                 <div>
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per Batch</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
-                    <p class="text-xs text-slate-400 mt-2 text-center italic">Loaves: 13 | Bagels: 6 | Muffs: 8 | Rollies: 12</p>
                 </div>
+                <!-- QUICK MACROS -->
                 <div class="mt-8 pt-6 border-t border-slate-600">
                     <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
                     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -135,7 +135,6 @@
             <div class="flex justify-center md:justify-end">
                 <div class="bg-white text-black p-6 border-[3px] border-black fda-label w-full max-w-sm rounded-md shadow-lg">
                     <h2 class="text-[2.2rem] font-black border-b-[3px] border-black pb-1 leading-none tracking-tighter m-0">Nutrition Facts</h2>
-                    <div class="text-base pt-1 pb-1 leading-tight font-bold"><span><span id="out-servings">13</span> servings per container</span></div>
                     <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">1 Slice</span></div>
                     <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">0</span></div>
                     <div class="space-y-1 text-sm leading-tight">
@@ -148,7 +147,6 @@
                         <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
                     </div>
                     <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight italic border-t border-gray-300 pt-2">
-                        <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
                     </p>
                 </div>
             </div>
@@ -157,16 +155,24 @@
 
     <footer class="mt-4 text-center pb-8 px-4 font-['Encode_Sans_Expanded'] text-black text-[0.75rem] max-w-[550px] mx-auto">
         <div class="mb-2 font-bold text-lg">Dylan's HomoMade Goods &trade; est. 2025</div>
+        <p class="mb-3 leading-[1.4] font-medium">
+                                            <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
+
+        </p>
+
         <p class="mb-3 leading-[1.4] font-medium">This product was produced in a home kitchen that is not subject to state licensure or inspection. This product is not intended for resale.</p>
         <a href="privacy.html" class="text-black hover:underline font-bold">Privacy Policy</a>
     </footer>
 
     <script>
         const recipes = {
-            "og_loaf": { dough: [{ name: "Flour", weight: 475.8 }, { name: "Water", weight: 295 }, { name: "Starter", weight: 119 }, { name: "Salt", weight: 15.2 }], inclusions: [] },
-            "jala_ched_bagel": { dough: [{ name: "Flour", weight: 67 }, { name: "Water", weight: 28 }, { name: "Starter", weight: 20 }, { name: "Blue Agave", weight: 3 }, { name: "Brown Sugar", weight: 3 }, { name: "Salt", weight: 2 }], inclusions: [{ name: "Jalapeno", weight: 5 }, { name: "Cheddar Cheese", weight: 6 }] },
-            "roasted_chile_bagel": { dough: [{ name: "Flour", weight: 67 }, { name: "Water", weight: 28 }, { name: "Starter", weight: 20 }, { name: "Blue Agave", weight: 3 }, { name: "Brown Sugar", weight: 3 }, { name: "Salt", weight: 2 }], inclusions: [{ name: "Roasted Green Chile", weight: 5 }, { name: "Mexican Cheese", weight: 3 }, { name: "Gouda Cheese", weight: 3 }] },
-            /* ... (Other recipes remain here) ... */
+            "og_loaf": { type: "batch", dough: [{ name: "Flour", weight: 475.8 }, { name: "Water", weight: 295 }, { name: "Starter", weight: 119 }, { name: "Salt", weight: 15.2 }], inclusions: [] },
+            "jala_ched_bagel": { type: "unit", dough: [{ name: "Flour", weight: 67 }, { name: "Water", weight: 28 }, { name: "Starter", weight: 20 }, { name: "Blue Agave", weight: 3 }, { name: "Brown Sugar", weight: 3 }, { name: "Salt", weight: 2 }], inclusions: [{ name: "Jalapeno", weight: 5 }, { name: "Cheddar Cheese", weight: 6 }] },
+            "roasted_chile_bagel": { type: "unit", dough: [{ name: "Flour", weight: 67 }, { name: "Water", weight: 28 }, { name: "Starter", weight: 20 }, { name: "Blue Agave", weight: 3 }, { name: "Brown Sugar", weight: 3 }, { name: "Salt", weight: 2 }], inclusions: [{ name: "Roasted Green Chile", weight: 5 }, { name: "Mexican Cheese", weight: 3 }, { name: "Gouda Cheese", weight: 3 }] },
+            "english_muffs": { type: "unit", dough: [{ name: "Flour", weight: 60.7 }, { name: "Milk", weight: 33.5 }, { name: "Starter", weight: 16 }, { name: "Salt", weight: 1.6 }, { name: "Blue Agave", weight: 3.2 }], inclusions: [{ name: "Cornmeal Dusting", weight: 0 }] },
+            "rollies": { type: "unit", dough: [{ name: "Flour", weight: 40.4 }, { name: "Milk", weight: 22.2 }, { name: "Starter", weight: 8.9 }, { name: "Butter Melted", weight: 5.3 }, { name: "Brown Sugar", weight: 2.2 }, { name: "Salt", weight: 0.9 }], inclusions: [] },
+            "focaccia": { type: "batch", dough: [{ name: "Flour", weight: 239.7 }, { name: "Water", weight: 148.6 }, { name: "Salt", weight: 7.7 }, { name: "Starter", weight: 57.5 }, { name: "Blue Agave", weight: 12 }, { name: "Avocado Oil", weight: 9.6 }], inclusions: [] }
+            // (Note: To keep this file concise, ensure you have the full database of recipes mapped in the 'recipes' constant similar to the ones above)
         };
 
         const ingredientMacros = {
@@ -179,7 +185,11 @@
             "Roasted Green Chile": { calories: 0.40, fat: 0, cholesterol: 0, sodium: 0.02, carbs: 0.09, sugar: 0.05, protein: 0.01 },
             "Mexican Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
             "Gouda Cheese": { calories: 4.0, fat: 0.33, cholesterol: 1.0, sodium: 6.0, carbs: 0.01, sugar: 0.01, protein: 0.25 },
-            /* ... (Other ingredients remain here) ... */
+            "Milk": { calories: 0.60, fat: 0.03, cholesterol: 0.1, sodium: 0.4, carbs: 0.05, sugar: 0.05, protein: 0.03 },
+            "Butter Melted": { calories: 7.17, fat: 0.81, cholesterol: 2.15, sodium: 6.43, carbs: 0.01, sugar: 0.01, protein: 0.01 },
+            "Blue Agave": { calories: 3.10, fat: 0, cholesterol: 0, sodium: 0, carbs: 0.76, sugar: 0.68, protein: 0 },
+            "Brown Sugar": { calories: 3.8, fat: 0, cholesterol: 0, sodium: 0.28, carbs: 0.98, sugar: 0.97, protein: 0 },
+            "Cornmeal Dusting": { calories: 3.6, fat: 0.01, cholesterol: 0, sodium: 0.05, carbs: 0.77, sugar: 0.01, protein: 0.08 }
         };
 
         function updateNutrition() {
@@ -187,43 +197,37 @@
             const slicesInput = document.getElementById("slices");
             const recipe = recipes[recipeKey];
 
-            // Define batch sizes
-            if (recipeKey.includes("bagel") || recipeKey.includes("focaccia")) {
-                slicesInput.value = "6";
-            } else if (recipeKey.includes("muff")) {
-                slicesInput.value = "8";
-            } else if (recipeKey.includes("rollies")) {
-                slicesInput.value = "12";
+            if (!recipe) return;
+
+            // Auto-set servings based on type
+            if (recipe.type === "batch") {
+                if (recipeKey.includes("focaccia") || recipeKey.includes("bagel")) slicesInput.value = "6";
+                else slicesInput.value = "13";
             } else {
-                slicesInput.value = "13";
+                if (recipeKey.includes("muff")) slicesInput.value = "8";
+                else if (recipeKey.includes("rollies")) slicesInput.value = "12";
+                else slicesInput.value = "1";
             }
 
             const slices = parseFloat(slicesInput.value) || 1;
-            
-            // MATH LOGIC
             let totalCals = 0, totalFat = 0, totalChol = 0, totalSod = 0, totalCarbs = 0, totalSugar = 0, totalPro = 0;
             
-            function calculateSection(items) {
-                if (!items) return;
+            function calc(items) {
                 items.forEach(item => {
-                    const macros = ingredientMacros[item.name] || { calories: 0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 };
-                    totalCals += item.weight * macros.calories;
-                    totalFat += item.weight * macros.fat;
-                    totalChol += item.weight * macros.cholesterol;
-                    totalSod += item.weight * macros.sodium;
-                    totalCarbs += item.weight * macros.carbs;
-                    totalSugar += item.weight * macros.sugar;
-                    totalPro += item.weight * macros.protein;
+                    const m = ingredientMacros[item.name] || { calories: 0, fat: 0, cholesterol: 0, sodium: 0, carbs: 0, sugar: 0, protein: 0 };
+                    totalCals += item.weight * m.calories;
+                    totalFat += item.weight * m.fat;
+                    totalChol += item.weight * m.cholesterol;
+                    totalSod += item.weight * m.sodium;
+                    totalCarbs += item.weight * m.carbs;
+                    totalSugar += item.weight * m.sugar;
+                    totalPro += item.weight * m.protein;
                 });
             }
-            calculateSection(recipe.dough);
-            calculateSection(recipe.inclusions);
+            calc(recipe.dough);
+            calc(recipe.inclusions);
 
-            // Per unit calculation:
-            // If loaf, divide by batch size. If single-unit item, it's already per unit (batch size 1).
-            const isBatch = (recipeKey === "og_loaf" || recipeKey.includes("focaccia"));
-            const divisor = isBatch ? slices : 1;
-
+            const divisor = (recipe.type === "batch") ? slices : 1;
             document.getElementById("out-cals").innerText = Math.round(totalCals / divisor);
             document.getElementById("out-fat").innerText = Math.round(totalFat / divisor) + "g";
             document.getElementById("out-chol").innerText = Math.round(totalChol / divisor) + "mg";
@@ -231,14 +235,11 @@
             document.getElementById("out-carbs").innerText = Math.round(totalCarbs / divisor) + "g";
             document.getElementById("out-sugar").innerText = Math.round(totalSugar / divisor) + "g";
             document.getElementById("out-pro").innerText = Math.round(totalPro / divisor) + "g";
-            
-            // Quick Macros
             document.getElementById("quick-cals").innerText = document.getElementById("out-cals").innerText;
             document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
             document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
             document.getElementById("quick-fat").innerText = document.getElementById("out-fat").innerText;
         }
-
         updateNutrition();
     </script>
 </body>
