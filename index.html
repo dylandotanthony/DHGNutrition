@@ -15,7 +15,6 @@
         body { background-color: #52C4FA !important; min-height: 100vh; font-family: 'Encode Sans Expanded', sans-serif !important; color: black; }
         .fda-label { font-family: Arial, Helvetica, sans-serif !important; }
         select:focus, input:focus { outline: none; border-color: #0dcaf0 !important; box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.25) !important; }
-        
         .social-circle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #000000; transition: transform 0.2s ease, filter 0.2s ease; }
         .social-circle:hover { transform: translateY(-3px); filter: brightness(0.9); }
         .social-circle img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
@@ -24,20 +23,7 @@
         .bg-tiktok { background-color: #000000 !important; }
         .bg-linkedin { background-color: #0077B5 !important; }
         .bg-nextdoor { background-color: #19975D !important; }
-
-        .btn-cta {
-            border: 3px solid #0dcaf0 !important;
-            color: #000000 !important;
-            font-weight: 800 !important;
-            font-size: 1.1rem !important;
-            padding: 12px 24px !important;
-            border-radius: 50px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background-color: white !important;
-            transition: all 0.2s ease;
-        }
+        .btn-cta { border: 3px solid #0dcaf0 !important; color: #000000 !important; font-weight: 800 !important; font-size: 1.1rem !important; padding: 12px 24px !important; border-radius: 50px !important; display: flex !important; align-items: center !important; justify-content: center !important; background-color: white !important; transition: all 0.2s ease; }
         .btn-cta:hover { background-color: #0dcaf0 !important; color: #ffffff !important; }
     </style>
 </head>
@@ -71,7 +57,6 @@
 
     <main class="max-w-5xl mx-auto px-4 pb-8 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            
             <div class="bg-slate-800 rounded-[20px] p-6 shadow-2xl border border-slate-600">
                 <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2 text-white">Select Your Bake</h2>
                 <div class="mb-5">
@@ -120,16 +105,6 @@
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per product</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
                 </div>
-                <!-- QUICK MACROS -->
-                <div class="mt-8 pt-6 border-t border-slate-600">
-                    <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
-                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Cals</span><span id="quick-cals" class="block text-white font-black text-lg">0</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Carbs</span><span id="quick-carbs" class="block text-white font-black text-lg">0g</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Protein</span><span id="quick-pro" class="block text-white font-black text-lg">0g</span></div>
-                        <div class="bg-slate-700 border border-slate-600 rounded-xl p-3 text-center shadow-inner"><span class="block text-slate-400 text-[10px] font-bold uppercase">Fat</span><span id="quick-fat" class="block text-white font-black text-lg">0g</span></div>
-                    </div>
-                </div>
             </div>
 
             <div class="flex justify-center md:justify-end">
@@ -138,7 +113,6 @@
                     <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">-</span></div>
                     <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">-</span></div>
                     <div class="space-y-1 text-sm leading-tight">
-                        <div class="text-right text-xs font-bold border-b border-black pb-1">% Daily Value*</div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Total Fat</span> <span id="out-fat">-</span></span></div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Cholesterol</span> <span id="out-chol">-</span></span></div>
                         <div class="flex justify-between border-b border-black pb-1 pt-1"><span><span class="font-bold">Sodium</span> <span id="out-sod">-</span></span></div>
@@ -192,17 +166,9 @@
             const slicesInput = document.getElementById("slices");
             const recipe = recipes[recipeKey];
 
-            if (!recipe) {
-                // Reset display
-                document.getElementById("out-cals").innerText = "-";
-                ["fat", "chol", "sod", "carbs", "sugar", "pro"].forEach(id => document.getElementById("out-" + id).innerText = "-");
-                document.getElementById("quick-cals").innerText = "0";
-                document.getElementById("quick-carbs").innerText = "0g";
-                document.getElementById("quick-pro").innerText = "0g";
-                document.getElementById("quick-fat").innerText = "0g";
-                return;
-            }
+            if (!recipe) return;
 
+            // Auto-set servings
             if (recipe.type === "batch") {
                 if (recipeKey.includes("focaccia") || recipeKey.includes("bagel")) slicesInput.value = "6";
                 else slicesInput.value = "13";
@@ -236,11 +202,9 @@
             document.getElementById("out-carbs").innerText = Math.round(totalCarbs / divisor) + "g";
             document.getElementById("out-sugar").innerText = Math.round(totalSugar / divisor) + "g";
             document.getElementById("out-pro").innerText = Math.round(totalPro / divisor) + "g";
-            document.getElementById("quick-cals").innerText = document.getElementById("out-cals").innerText;
-            document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
-            document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
-            document.getElementById("quick-fat").innerText = document.getElementById("out-fat").innerText;
+            document.getElementById("out-serving-name").innerText = "1 Item";
         }
+        updateNutrition();
     </script>
 </body>
 </html>
