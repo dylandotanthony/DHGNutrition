@@ -6,7 +6,6 @@
     <title>Nutrition - Dylan's HomoMade Goods</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
@@ -80,13 +79,53 @@
                 <div class="mb-5">
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Product</label>
                     <select id="recipe-select" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-base font-semibold shadow-inner transition-all cursor-pointer" onchange="updateNutrition()">
-                        <option value="og_loaf" selected>OG Sourdough</option><option value="roasted_chile">Roasted Chile Cheese Sourdough</option><option value="cin_raisin">Cinnamon Raisin Sourdough</option><option value="jala_ched">Jalapeno Cheddar Cheese Sourdough</option><option value="grilled_chz">Grilled Cheese Sourdough</option><option value="Cherry_Chocolate">Cherry Chocolate Sourdough</option><option value="caramel_apple">Caramel Apple Sourdough</option><option value="salty_dulce">Salty Dulce Sourdough</option><option value="blueberry">Blueberry Sourdough</option><option value="blueberry_lemon">Blueberry Lemon Sourdough</option><option value="Cranberry_orange">Cranberry Orange Sourdough</option><option value="carrot_cake">Carrot Cake Sourdough</option><option value="Dill_Dough">Dill Dough Sourdough</option><option value="garlic_parm">Garlic Parm Sourdough</option><option value="Chocolate_espresso">Chocolate Espresso Sourdough</option><option value="Rosemary_asiago">Rosemary Asiago Sourdough</option><option value="banana_pie">Banana Pie Sourdough</option><option value="Pep_pizza">Pepperoni Pizza Sourdough</option><option value="ginger_crust">GingerCrust Sourdough</option><option value="bb_cin">Blueberry Cinnamon Sourdough</option><option value="sweet_cin">Sweet Cinnamon Sourdough</option><option value="cin_apple">Cinnamon Apple Sourdough</option><option value="pumpkin">Pumpkin Sourdough</option><option value="english_muffs">OG English Muffs</option><option value="JC_E_muffs">Jala Chd Sourdough English Muffs</option><option value="BB_E_muffs">Blueberry Sourdough English Muffs</option><option value="focaccia">OG Sourdough Focaccia</option><option value="Gar_Parm_focaccia">Garlic Parm Focaccia</option><option value="bb_Cin_focaccia">Blueberry Cinnamon Focaccia</option><option value="apple_Cin_focaccia">Apple Cinnamon Focaccia</option><option value="CA_focaccia">Caramel Apple Focaccia</option><option value="tortilla">Sourdough Tortillas</option><option value="og_bagels">OG Sourdough Bagels</option><option value="rollies">Sourdough Rollies</option><option value="Jal_Chile_bagels">Jalapeno Chile Bagels</option><option value="BB_bagels">Blueberry Bagels</option><option value="blueberry_jack">Blueberry Jack Sourdough</option>
+                        <option value="apple_Cin_focaccia">Apple Cinnamon Focaccia</option>
+                        <option value="banana_pie">Banana Pie Sourdough</option>
+                        <option value="BB_bagels">Blueberry Bagels</option>
+                        <option value="bb_Cin_focaccia">Blueberry Cinnamon Focaccia</option>
+                        <option value="bb_cin">Blueberry Cinnamon Sourdough</option>
+                        <option value="blueberry_jack">Blueberry Jack Sourdough</option>
+                        <option value="blueberry_lemon">Blueberry Lemon Sourdough</option>
+                        <option value="blueberry">Blueberry Sourdough</option>
+                        <option value="BB_E_muffs">Blueberry Sourdough English Muffs</option>
+                        <option value="CA_focaccia">Caramel Apple Focaccia</option>
+                        <option value="caramel_apple">Caramel Apple Sourdough</option>
+                        <option value="carrot_cake">Carrot Cake Sourdough</option>
+                        <option value="Cherry_Chocolate">Cherry Chocolate Sourdough</option>
+                        <option value="Chocolate_espresso">Chocolate Espresso Sourdough</option>
+                        <option value="cin_apple">Cinnamon Apple Sourdough</option>
+                        <option value="cin_butter">Cinnamon Butter</option>
+                        <option value="cin_raisin">Cinnamon Raisin Sourdough</option>
+                        <option value="Cranberry_orange">Cranberry Orange Sourdough</option>
+                        <option value="Dill_Dough">Dill Dough Sourdough</option>
+                        <option value="Gar_Parm_focaccia">Garlic Parm Focaccia</option>
+                        <option value="garlic_parm">Garlic Parm Sourdough</option>
+                        <option value="ginger_crust">GingerCrust Sourdough</option>
+                        <option value="grilled_chz">Grilled Cheese Sourdough</option>
+                        <option value="JC_E_muffs">Jala Chd Sourdough English Muffs</option>
+                        <option value="jala_ched">Jalapeno Cheddar Cheese Sourdough</option>
+                        <option value="Jal_Chile_bagels">Jalapeno Chile Bagels</option>
+                        <option value="english_muffs">OG English Muffs</option>
+                        <option value="og_loaf" selected>OG Sourdough</option>
+                        <option value="og_bagels">OG Sourdough Bagels</option>
+                        <option value="focaccia">OG Sourdough Focaccia</option>
+                        <option value="Pep_pizza">Pepperoni Pizza Sourdough</option>
+                        <option value="PS_butter">Pumpkin Spice Butter</option>
+                        <option value="pumpkin">Pumpkin Sourdough</option>
+                        <option value="roasted_chile">Roasted Chile Cheese Sourdough</option>
+                        <option value="Rosemary_asiago">Rosemary Asiago Sourdough</option>
+                        <option value="salty_dulce">Salty Dulce Sourdough</option>
+                        <option value="rollies">Sourdough Rollies</option>
+                        <option value="tortilla">Sourdough Tortillas</option>
+                        <option value="sweet_cin">Sweet Cinnamon Sourdough</option>
                     </select>
                 </div>
                 <div>
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per Batch</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
+                    <p class="text-xs text-slate-400 mt-2 text-center italic">Loaves: 13 | Bagels/Focaccia: 6 | Muffs: 8 | Rollies: 12</p>
                 </div>
+                <!-- QUICK MACROS -->
                 <div class="mt-8 pt-6 border-t border-slate-600">
                     <h3 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-center">Quick Macros</h3>
                     <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -113,24 +152,18 @@
                         <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">0g</span></span></div>
                         <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
                     </div>
-                    <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight">
-                        * The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice. 
+                    <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight italic border-t border-gray-300 pt-2">
+                        <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
                     </p>
-                    
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="mt-4 text-center pb-8 px-4 font-['Encode_Sans_Expanded'] text-black">
+    <footer class="mt-4 text-center pb-8 px-4 font-['Encode_Sans_Expanded'] text-black text-[0.75rem] max-w-[550px] mx-auto">
         <div class="mb-2 font-bold text-lg">Dylan's HomoMade Goods &trade; est. 2025</div>
-        <p class="mx-auto mb-3 px-3 text-[0.75rem] max-w-[550px] leading-[1.4] font-medium">
-                        <strong>Disclaimers:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
-                    </p>
-        <p class="mx-auto mb-3 px-3 text-[0.75rem] max-w-[550px] leading-[1.4] font-medium">
-            This product was produced in a home kitchen that is not subject to state licensure or inspection and that may also process common food allergens such as tree nuts, peanuts, eggs, soy, wheat, milk, fish, and crustacean shellfish. This product is not intended for resale.
-        </p>
-        <a href="privacy.html" class="text-black text-sm hover:underline font-bold">Privacy Policy</a>
+        <p class="mb-3 leading-[1.4] font-medium">This product was produced in a home kitchen that is not subject to state licensure or inspection. This product is not intended for resale.</p>
+        <a href="privacy.html" class="text-black hover:underline font-bold">Privacy Policy</a>
     </footer>
 
     <script>
@@ -241,7 +274,19 @@
         function updateNutrition() {
             const recipeKey = document.getElementById("recipe-select").value;
             const slicesInput = document.getElementById("slices");
-            const slices = parseFloat(slicesInput.value) || 13;
+            
+            // Logic to auto-set servings
+            if (recipeKey.includes("focaccia") || recipeKey.includes("bagel")) {
+                slicesInput.value = "6";
+            } else if (recipeKey.includes("muff")) {
+                slicesInput.value = "8";
+            } else if (recipeKey.includes("rollies")) {
+                slicesInput.value = "12";
+            } else {
+                slicesInput.value = "13";
+            }
+
+            const slices = parseFloat(slicesInput.value) || 1;
             const recipe = recipes[recipeKey];
 
             let servingName = "1 Slice";
