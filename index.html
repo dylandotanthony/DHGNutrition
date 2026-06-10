@@ -117,7 +117,7 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per Batch</label>
+                    <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Servings per product</label>
                     <input type="number" id="slices" value="13" min="1" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-center text-lg font-bold shadow-inner transition-all" oninput="updateNutrition()">
                 </div>
                 <!-- QUICK MACROS -->
@@ -135,7 +135,7 @@
             <div class="flex justify-center md:justify-end">
                 <div class="bg-white text-black p-6 border-[3px] border-black fda-label w-full max-w-sm rounded-md shadow-lg">
                     <h2 class="text-[2.2rem] font-black border-b-[3px] border-black pb-1 leading-none tracking-tighter m-0">Nutrition Facts</h2>
-                    <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">1 Slice</span></div>
+                    <div class="flex justify-between font-extrabold text-lg border-b-[10px] border-black pb-2 mb-2 leading-tight"><span>Serving size</span><span id="out-serving-name">1 </span></div>
                     <div class="flex justify-between items-end border-b-[6px] border-black pb-1 mb-3"><div><span class="block font-bold text-sm leading-tight mb-1">Amount per serving</span><span class="text-[2rem] font-black leading-none tracking-tighter">Calories</span></div><span id="out-cals" class="text-[2.5rem] font-black leading-none tracking-tighter">0</span></div>
                     <div class="space-y-1 text-sm leading-tight">
                         <div class="text-right text-xs font-bold border-b border-black pb-1">% Daily Value*</div>
@@ -146,8 +146,6 @@
                         <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">0g</span></span></div>
                         <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
                     </div>
-                    <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight italic border-t border-gray-300 pt-2">
-                    </p>
                 </div>
             </div>
         </div>
@@ -156,10 +154,8 @@
     <footer class="mt-4 text-center pb-8 px-4 font-['Encode_Sans_Expanded'] text-black text-[0.75rem] max-w-[550px] mx-auto">
         <div class="mb-2 font-bold text-lg">Dylan's HomoMade Goods &trade; est. 2025</div>
         <p class="mb-3 leading-[1.4] font-medium">
-                                            <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
-
+            <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
         </p>
-
         <p class="mb-3 leading-[1.4] font-medium">This product was produced in a home kitchen that is not subject to state licensure or inspection. This product is not intended for resale.</p>
         <a href="privacy.html" class="text-black hover:underline font-bold">Privacy Policy</a>
     </footer>
@@ -172,7 +168,6 @@
             "english_muffs": { type: "unit", dough: [{ name: "Flour", weight: 60.7 }, { name: "Milk", weight: 33.5 }, { name: "Starter", weight: 16 }, { name: "Salt", weight: 1.6 }, { name: "Blue Agave", weight: 3.2 }], inclusions: [{ name: "Cornmeal Dusting", weight: 0 }] },
             "rollies": { type: "unit", dough: [{ name: "Flour", weight: 40.4 }, { name: "Milk", weight: 22.2 }, { name: "Starter", weight: 8.9 }, { name: "Butter Melted", weight: 5.3 }, { name: "Brown Sugar", weight: 2.2 }, { name: "Salt", weight: 0.9 }], inclusions: [] },
             "focaccia": { type: "batch", dough: [{ name: "Flour", weight: 239.7 }, { name: "Water", weight: 148.6 }, { name: "Salt", weight: 7.7 }, { name: "Starter", weight: 57.5 }, { name: "Blue Agave", weight: 12 }, { name: "Avocado Oil", weight: 9.6 }], inclusions: [] }
-            // (Note: To keep this file concise, ensure you have the full database of recipes mapped in the 'recipes' constant similar to the ones above)
         };
 
         const ingredientMacros = {
@@ -199,14 +194,12 @@
 
             if (!recipe) return;
 
-            // Auto-set servings based on type
+            // Auto-set servings
             if (recipe.type === "batch") {
                 if (recipeKey.includes("focaccia") || recipeKey.includes("bagel")) slicesInput.value = "6";
                 else slicesInput.value = "13";
             } else {
-                if (recipeKey.includes("muff")) slicesInput.value = "8";
-                else if (recipeKey.includes("rollies")) slicesInput.value = "12";
-                else slicesInput.value = "1";
+                slicesInput.value = "1";
             }
 
             const slices = parseFloat(slicesInput.value) || 1;
@@ -235,6 +228,7 @@
             document.getElementById("out-carbs").innerText = Math.round(totalCarbs / divisor) + "g";
             document.getElementById("out-sugar").innerText = Math.round(totalSugar / divisor) + "g";
             document.getElementById("out-pro").innerText = Math.round(totalPro / divisor) + "g";
+            
             document.getElementById("quick-cals").innerText = document.getElementById("out-cals").innerText;
             document.getElementById("quick-carbs").innerText = document.getElementById("out-carbs").innerText;
             document.getElementById("quick-pro").innerText = document.getElementById("out-pro").innerText;
