@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nutrition - Dylan's HomoMade Goods</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Your Official Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
@@ -19,6 +17,7 @@
         .fda-label { font-family: Arial, Helvetica, sans-serif !important; }
         select:focus, input:focus { outline: none; border-color: #0dcaf0 !important; box-shadow: 0 0 0 3px rgba(13, 202, 240, 0.25) !important; }
         
+        /* Social Circles */
         .social-circle { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #000000; transition: transform 0.2s ease, filter 0.2s ease; }
         .social-circle:hover { transform: translateY(-3px); filter: brightness(0.9); }
         .social-circle img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
@@ -28,17 +27,30 @@
         .bg-linkedin { background-color: #0077B5 !important; }
         .bg-nextdoor { background-color: #19975D !important; }
 
-        .btn-cta { border: 3px solid #0dcaf0 !important; color: #000000 !important; font-weight: 800 !important; font-size: 1.1rem !important; padding: 12px 24px !important; border-radius: 50px !important; display: flex !important; align-items: center !important; justify-content: center !important; background-color: white !important; transition: all 0.2s ease; }
+        /* CTA Buttons */
+        .btn-cta {
+            border: 3px solid #0dcaf0 !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+            font-size: 1.1rem !important;
+            padding: 12px 24px !important;
+            border-radius: 50px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background-color: white !important;
+            transition: all 0.2s ease;
+        }
         .btn-cta:hover { background-color: #0dcaf0 !important; color: #ffffff !important; }
     </style>
 </head>
 <body class="antialiased pb-10">
 
     <div class="max-w-[680px] mx-auto pt-8 px-4 text-center">
-        <div class="relative mb-[60px] rounded-[16px] shadow-sm border border-black bg-white">
-            <img class="w-full h-auto rounded-[16px] block" src="images/banner.png" alt="Banner" onerror="this.src='https://placehold.co/680x200/e2e8f0/000000?text=Banner+Image+Missing'">
-            <div class="absolute left-1/2 -translate-x-1/2 w-full px-3" style="bottom: -40px;">
-                <h1 class="font-['Rock_Salt'] bg-white px-4 py-2 rounded-full shadow-sm border border-black m-0 text-[clamp(1.2rem,5vw,1.8rem)] text-black leading-[1.1] inline-block">Dylan's HomoMade Goods</h1>
+        <div class="relative mb-[40px] rounded-[16px] shadow-sm border border-black bg-white max-w-[50%] mx-auto">
+            <img class="w-full h-auto rounded-[16px] block" src="images/banner.png" alt="Banner" onerror="this.src='https://placehold.co/340x100/e2e8f0/000000?text=Banner+Image+Missing'">
+            <div class="absolute left-1/2 -translate-x-1/2 w-full px-3" style="bottom: -20px;">
+                <h1 class="font-['Rock_Salt'] bg-white px-3 py-1 rounded-full shadow-sm border border-black m-0 text-[clamp(0.8rem,3vw,1.2rem)] text-black leading-[1.1] inline-block">Dylan's HomoMade Goods</h1>
             </div>
         </div>
 
@@ -62,12 +74,13 @@
 
     <main class="max-w-5xl mx-auto px-4 pb-8 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            
             <div class="bg-slate-800 rounded-[20px] p-6 shadow-2xl border border-slate-600">
                 <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2 text-white">Select Your Bake</h2>
                 <div class="mb-5">
                     <label class="block text-cyan-400 text-sm font-bold mb-2 uppercase tracking-wider">Product</label>
                     <select id="recipe-select" class="w-full px-4 py-3 border border-slate-600 rounded-[50px] bg-slate-700 text-white text-base font-semibold shadow-inner transition-all cursor-pointer" onchange="updateNutrition()">
-                        <option value="apple_Cin_focaccia">Apple Cinnamon Focaccia</option><option value="banana_pie">Banana Pie Sourdough</option><option value="BB_bagels">Blueberry Bagels</option><option value="bb_cin">Blueberry Cinnamon Sourdough</option><option value="bb_Cin_focaccia">Blueberry Cinnamon Focaccia</option><option value="blueberry_jack">Blueberry Jack Sourdough</option><option value="blueberry_lemon">Blueberry Lemon Sourdough</option><option value="blueberry">Blueberry Sourdough</option><option value="BB_E_muffs">Blueberry Sourdough English Muffs</option><option value="caramel_apple">Caramel Apple Sourdough</option><option value="CA_focaccia">Caramel Apple Focaccia</option><option value="carrot_cake">Carrot Cake Sourdough</option><option value="Cherry_Chocolate">Cherry Chocolate Sourdough</option><option value="Chocolate_espresso">Chocolate Espresso Sourdough</option><option value="cin_apple">Cinnamon Apple Sourdough</option><option value="cin_raisin">Cinnamon Raisin Sourdough</option><option value="cin_butter">Cinnamon Butter</option><option value="Cranberry_orange">Cranberry Orange Sourdough</option><option value="Dill_Dough">Dill Dough Sourdough</option><option value="garlic_parm">Garlic Parm Sourdough</option><option value="Gar_Parm_focaccia">Garlic Parm Focaccia</option><option value="ginger_crust">GingerCrust Sourdough</option><option value="grilled_chz">Grilled Cheese Sourdough</option><option value="JC_E_muffs">Jala Chd Sourdough English Muffs</option><option value="jala_ched">Jalapeno Cheddar Cheese Sourdough</option><option value="Jal_Chile_bagels">Jalapeno Chile Bagels</option><option value="og_bagels">OG Sourdough Bagels</option><option value="focaccia">OG Sourdough Focaccia</option><option value="og_loaf" selected>OG Sourdough</option><option value="Pep_pizza">Pepperoni Pizza Sourdough</option><option value="pumpkin">Pumpkin Sourdough</option><option value="PS_butter">Pumpkin Spice Butter</option><option value="roasted_chile">Roasted Chile Cheese Sourdough</option><option value="rollies">Sourdough Rollies</option><option value="Rosemary_asiago">Rosemary Asiago Sourdough</option><option value="salty_dulce">Salty Dulce Sourdough</option><option value="english_muffs">OG English Muffs</option><option value="sweet_cin">Sweet Cinnamon Sourdough</option><option value="tortilla">Sourdough Tortillas</option>
+                        <option value="og_loaf" selected>OG Sourdough</option><option value="roasted_chile">Roasted Chile Cheese Sourdough</option><option value="cin_raisin">Cinnamon Raisin Sourdough</option><option value="jala_ched">Jalapeno Cheddar Cheese Sourdough</option><option value="grilled_chz">Grilled Cheese Sourdough</option><option value="Cherry_Chocolate">Cherry Chocolate Sourdough</option><option value="caramel_apple">Caramel Apple Sourdough</option><option value="salty_dulce">Salty Dulce Sourdough</option><option value="blueberry">Blueberry Sourdough</option><option value="blueberry_lemon">Blueberry Lemon Sourdough</option><option value="Cranberry_orange">Cranberry Orange Sourdough</option><option value="carrot_cake">Carrot Cake Sourdough</option><option value="Dill_Dough">Dill Dough Sourdough</option><option value="garlic_parm">Garlic Parm Sourdough</option><option value="Chocolate_espresso">Chocolate Espresso Sourdough</option><option value="Rosemary_asiago">Rosemary Asiago Sourdough</option><option value="banana_pie">Banana Pie Sourdough</option><option value="Pep_pizza">Pepperoni Pizza Sourdough</option><option value="ginger_crust">GingerCrust Sourdough</option><option value="bb_cin">Blueberry Cinnamon Sourdough</option><option value="sweet_cin">Sweet Cinnamon Sourdough</option><option value="cin_apple">Cinnamon Apple Sourdough</option><option value="pumpkin">Pumpkin Sourdough</option><option value="english_muffs">OG English Muffs</option><option value="JC_E_muffs">Jala Chd Sourdough English Muffs</option><option value="BB_E_muffs">Blueberry Sourdough English Muffs</option><option value="focaccia">OG Sourdough Focaccia</option><option value="Gar_Parm_focaccia">Garlic Parm Focaccia</option><option value="bb_Cin_focaccia">Blueberry Cinnamon Focaccia</option><option value="apple_Cin_focaccia">Apple Cinnamon Focaccia</option><option value="CA_focaccia">Caramel Apple Focaccia</option><option value="tortilla">Sourdough Tortillas</option><option value="og_bagels">OG Sourdough Bagels</option><option value="rollies">Sourdough Rollies</option><option value="Jal_Chile_bagels">Jalapeno Chile Bagels</option><option value="BB_bagels">Blueberry Bagels</option><option value="blueberry_jack">Blueberry Jack Sourdough</option>
                     </select>
                 </div>
                 <div>
@@ -100,6 +113,9 @@
                         <div class="flex justify-between border-b border-black pb-1 pt-1 pl-6"><span>Total Sugars <span id="out-sugar">0g</span></span></div>
                         <div class="flex justify-between border-b-[10px] border-black pb-2 pt-1"><span><span class="font-bold">Protein</span> <span id="out-pro">0g</span></span></div>
                     </div>
+                    <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight">
+                        * The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice. 
+                    </p>
                     <p class="text-[0.65rem] text-gray-600 mt-2 leading-tight italic border-t border-gray-300 pt-2">
                         <strong>Disclaimer:</strong> Because every product is handmade in a cottage bakery, these nutrition facts are highly educated estimates based on our recipes, not lab tests. Sourdough has a mind of its own, so expect slight, crusty variations!
                     </p>
